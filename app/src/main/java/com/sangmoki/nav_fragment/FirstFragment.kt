@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.findNavController
 
 class FirstFragment : Fragment() {
 
@@ -16,7 +18,27 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+
+        // layout 불러오기
+        val view = inflater.inflate(R.layout.fragment_first, container, false)
+
+        // 1번 버튼 클릭 이벤트
+        view.findViewById<Button>(R.id.btn1).setOnClickListener {
+
+            // 버튼 클릭 시, SecondFragment로 이동
+            it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment2)
+        }
+
+        // 2번 버튼 클릭 이벤트
+        view.findViewById<Button>(R.id.btn2).setOnClickListener {
+
+        }
+
+        // 3번 버튼 클릭 이벤트
+        view.findViewById<Button>(R.id.btn3).setOnClickListener {
+
+        }
+
+        return view
     }
 }
